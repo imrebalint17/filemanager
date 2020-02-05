@@ -11,13 +11,13 @@ namespace Filemanager
         static void Main(string[] args)
         {
             Program pr = new Program();
-            
+
             pr.searchDrive();
         }
         void searchDrive()
-		{
-			writeOut(new ArrayList(DriveInfo.GetDrives()));
-			Console.ReadLine();
+        {
+            writeOut(new ArrayList(DriveInfo.GetDrives()));
+            Console.ReadLine();
         }
         void searchTheFilesAndFolders()
         {
@@ -33,7 +33,6 @@ namespace Filemanager
             {
                 containedFilesAndDirectories.Add(item);
             }
-            //containedFilesAndDirectories.Sort();
             Console.Write("\n");
             Console.WriteLine("Elérhető mappák/fájlok:");
             writeOut(containedFilesAndDirectories);
@@ -46,7 +45,7 @@ namespace Filemanager
             bool canTheWhileLoopBrake = false;
             while (true)
             {
-                
+
                 var key = Console.ReadKey(true);
                 switch (key.Key)
                 {
@@ -57,16 +56,16 @@ namespace Filemanager
                         path = selectableList[sizeOfTheList].ToString();
                         canTheWhileLoopBrake = true;
                         break;
-                   case ConsoleKey.DownArrow:
+                    case ConsoleKey.DownArrow:
                         if (sizeOfTheList < selectableList.Count - 1)
                         {
-                            
+
                             sizeOfTheList++;
                             clearLine();
                             Console.Write(splitanArrayList(selectableList[sizeOfTheList]));
 
                         }
-                        
+
                         break;
                     case ConsoleKey.UpArrow:
                         if (sizeOfTheList > 0)
@@ -77,9 +76,9 @@ namespace Filemanager
 
                         }
                         break;
-               }
-               
-                if(canTheWhileLoopBrake == true)
+                }
+
+                if (canTheWhileLoopBrake == true)
                 {
                     break;
                 }
@@ -92,7 +91,7 @@ namespace Filemanager
             {
                 foreach (var item in OutWriteableList)
                 {
-                    
+
                     Console.WriteLine(splitanArrayList(item));
                 }
             }
@@ -104,41 +103,37 @@ namespace Filemanager
                     Console.WriteLine(item);
                 }
             }
-            
-            
+
+
             Console.Write("\n");
             selectTheFiles(OutWriteableList);
         }
-           
+
         void clearLine()
         {
             int currentLineCursor = Console.CursorTop;
             Console.SetCursorPosition(0, Console.CursorTop);
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, currentLineCursor);
-        }    
-            string splitanArrayList(System.Object splittableList)
-            {
-                string[] splitable = splittableList.ToString().Split('\\');
-                
-                Array.Reverse(splitable);
-            if (splitable[0]!="")
+        }
+        string splitanArrayList(System.Object splittableList)
+        {
+            string[] splitable = splittableList.ToString().Split('\\');
+
+            Array.Reverse(splitable);
+            if (splitable[0] != "")
             {
                 return splitable[0];
             }
-            else { 
+            else
+            {
                 return splitable[1];
             }
         }
         void stepBackOneDirectory()
         {
-            string[] bontott = path.Split("\\");
-            
-           /* foreach (var item in bontott)
-            {
-                Console.WriteLine(item);
-            }*/
-            if (bontott.Length < 2)
+            string[] splitedPath = path.Split("\\");
+            if (splitedPath.Length < 2)
             {
                 searchDrive();
                 path = "";
@@ -146,14 +141,14 @@ namespace Filemanager
             else
             {
                 path = "";
-                Array.Resize(ref bontott, bontott.Length -2);
-                foreach (var item in bontott)
+                Array.Resize(ref splitedPath, splitedPath.Length - 2);
+                foreach (var item in splitedPath)
                 {
-                    path += bontott + "\\";
+                    path += splitedPath + "\\";
                 }
                 searchTheFilesAndFolders();
 
             }
         }
-        }
+    }
 }

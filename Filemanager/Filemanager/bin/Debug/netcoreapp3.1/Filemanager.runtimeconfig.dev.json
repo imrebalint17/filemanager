@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\imreb\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\imreb\\.nuget\\packages"
+    ]
+  }
+}
