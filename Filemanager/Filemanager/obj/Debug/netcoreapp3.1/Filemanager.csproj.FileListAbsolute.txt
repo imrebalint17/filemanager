@@ -20,3 +20,14 @@ D:\Programozas\github\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.
 D:\Programozas\github\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.AssemblyInfo.cs
 D:\Programozas\github\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.dll
 D:\Programozas\github\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.pdb
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.exe
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.deps.json
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.runtimeconfig.json
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.runtimeconfig.dev.json
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.dll
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.pdb
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.csprojAssemblyReference.cache
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.AssemblyInfoInputs.cache
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.AssemblyInfo.cs
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.dll
+D:\home\development\csharp\filemanager-master\filemanager\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.pdb

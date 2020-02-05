@@ -11,6 +11,7 @@ namespace Filemanager
         static void Main(string[] args)
         {
             Program pr = new Program();
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             pr.searchDrive();
         }
         void searchDrive()
