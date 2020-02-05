@@ -15,20 +15,8 @@ namespace Filemanager
             pr.searchDrive();
         }
         void searchDrive()
-        {
-						/*
-            DriveInfo[] driveInfo = DriveInfo.GetDrives();
-            ArrayList containedDrives = new ArrayList();
-            foreach (var item in driveInfo)
-            {
-                containedDrives.Add(item);
-            }
-            Console.WriteLine("Elérhető meghajtók:");
-            writeOut(containedDrives);
-            
-            Console.ReadLine();
-						*/
-						writeOut(new ArrayList(DriveInfo.GetDrives()));
+				{
+					writeOut(new ArrayList(DriveInfo.GetDrives()));
 						Console.ReadLine();
         }
         void searchTheFilesAndFolders()
