@@ -11,7 +11,6 @@ namespace Filemanager
         static void Main(string[] args)
         {
             Program pr = new Program();
-
             pr.searchDrive();
         }
         void searchDrive()
@@ -62,7 +61,7 @@ namespace Filemanager
 
                             sizeOfTheList++;
                             clearLine();
-                            Console.Write(splitanArrayList(selectableList[sizeOfTheList]));
+                            Console.Write(splitanArrayList(selectableList[sizeOfTheList]).ToString() + "\\");
 
                         }
 
@@ -72,7 +71,7 @@ namespace Filemanager
                         {
                             sizeOfTheList--;
                             clearLine();
-                            Console.Write(splitanArrayList(selectableList[sizeOfTheList]));
+                            Console.Write(splitanArrayList(selectableList[sizeOfTheList]).ToString()+"\\");
 
                         }
                         break;
