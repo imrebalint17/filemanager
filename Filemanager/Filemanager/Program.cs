@@ -436,17 +436,19 @@ namespace Filemanager
         void stepBackOneDirectory()
         {
             string[] bontott = path.Split("\\");
-            path = null;
-            foreach (var item in bontott)
+            
+           /* foreach (var item in bontott)
             {
                 Console.WriteLine(item);
-            }
+            }*/
             if (bontott.Length < 2)
             {
                 searchDrive();
+                path = "";
             }
             else
             {
+                path = "";
                 Array.Resize(ref bontott, bontott.Length -2);
                 foreach (var item in bontott)
                 {

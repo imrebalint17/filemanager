@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programozas\\C#\\Filemanager\\Filemanager\\Filemanager.csproj",
+      "projectUniqueName": "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj",
       "projectName": "Filemanager",
-      "projectPath": "D:\\Programozas\\C#\\Filemanager\\Filemanager\\Filemanager.csproj",
+      "projectPath": "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj",
       "packagesPath": "C:\\Users\\imreb\\.nuget\\packages\\",
-      "outputPath": "D:\\Programozas\\C#\\Filemanager\\Filemanager\\obj\\",
+      "outputPath": "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\imreb\\AppData\\Roaming\\NuGet\\NuGet.Config",
