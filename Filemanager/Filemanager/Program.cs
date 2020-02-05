@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections;
-
+using System.Collections.Generic;
 
 namespace Filemanager
 {
@@ -10,15 +10,13 @@ namespace Filemanager
         public string path = "";
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
-            
             Program pr = new Program();
             
             pr.searchDrive();
-          
         }
         void searchDrive()
         {
+						/*
             DriveInfo[] driveInfo = DriveInfo.GetDrives();
             ArrayList containedDrives = new ArrayList();
             foreach (var item in driveInfo)
@@ -29,6 +27,9 @@ namespace Filemanager
             writeOut(containedDrives);
             
             Console.ReadLine();
+						*/
+						writeOut(new ArrayList(DriveInfo.GetDrives()));
+						Console.ReadLine();
         }
         void searchTheFilesAndFolders()
         {
