@@ -1,0 +1,11 @@
+D:\Programozas\C#\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.exe
+D:\Programozas\C#\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.deps.json
+D:\Programozas\C#\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.runtimeconfig.json
+D:\Programozas\C#\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.runtimeconfig.dev.json
+D:\Programozas\C#\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.dll
+D:\Programozas\C#\Filemanager\Filemanager\bin\Debug\netcoreapp3.1\Filemanager.pdb
+D:\Programozas\C#\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.csprojAssemblyReference.cache
+D:\Programozas\C#\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.AssemblyInfoInputs.cache
+D:\Programozas\C#\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.AssemblyInfo.cs
+D:\Programozas\C#\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.dll
+D:\Programozas\C#\Filemanager\Filemanager\obj\Debug\netcoreapp3.1\Filemanager.pdb
