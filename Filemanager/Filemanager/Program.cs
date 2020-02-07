@@ -7,7 +7,7 @@ namespace Filemanager
 {
     class Program
     {
-        //comment
+       
         public string path = "";
         static void Main(string[] args)
         {
@@ -53,7 +53,14 @@ namespace Filemanager
                     case ConsoleKey.Backspace:
                         stepBackOneDirectory();
                         break;
+                    case ConsoleKey.LeftArrow:
+                        stepBackOneDirectory();
+                        break;
                     case ConsoleKey.Enter:
+                        path = selectableList[sizeOfTheList].ToString();
+                        canTheWhileLoopBrake = true;
+                        break;
+                    case ConsoleKey.RightArrow:
                         path = selectableList[sizeOfTheList].ToString();
                         canTheWhileLoopBrake = true;
                         break;
@@ -88,6 +95,8 @@ namespace Filemanager
         }
         void writeOut(ArrayList OutWriteableList)
         {
+            OutWriteableList.Sort() ;
+            Console.Write("\n");
             if (OutWriteableList[0] is DirectoryInfo || OutWriteableList[0] is FileInfo)
             {
                 foreach (var item in OutWriteableList)
@@ -134,10 +143,12 @@ namespace Filemanager
         void stepBackOneDirectory()
         {
             string[] splitedPath = path.Split("\\");
-            if (splitedPath.Length < 2)
+            if (splitedPath.Length <= 2)
             {
-                searchDrive();
+                
                 path = "";
+                searchDrive();
+                //breakpoint
             }
             else
             {
@@ -148,7 +159,7 @@ namespace Filemanager
                     path += splitedPath + "\\";
                 }
                 searchTheFilesAndFolders();
-
+                    //breakpoint
             }
         }
     }
