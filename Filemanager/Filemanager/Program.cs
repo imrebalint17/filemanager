@@ -17,7 +17,7 @@ namespace Filemanager
         }
         void searchDrive()
         {
-            writeOut(new ArrayList(DriveInfo.GetDrives()));
+            writeOut(new ArrayList(Directory.GetLogicalDrives()));
             Console.ReadLine();
         }
         void searchTheFilesAndFolders()
