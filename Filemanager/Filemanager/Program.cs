@@ -7,20 +7,19 @@ namespace Filemanager
 {
     class Program
     {
-       
         public string path = "";
         static void Main(string[] args)
         {
             Program pr = new Program();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            pr.searchDrive();
+            pr.SearchDrive();
         }
-        void searchDrive()
+        void SearchDrive()
         {
-            writeOut(new ArrayList(Directory.GetLogicalDrives()));
+            WriteOut(new ArrayList(Directory.GetLogicalDrives()));
             Console.ReadLine();
         }
-        void searchTheFilesAndFolders()
+        void SearchTheFilesAndFolders()
         {
             DirectoryInfo directory = new DirectoryInfo(path);
             FileInfo[] fileInfo = directory.GetFiles("*");
@@ -36,9 +35,9 @@ namespace Filemanager
             }
             Console.Write("\n");
             Console.WriteLine("Elérhető mappák/fájlok:");
-            writeOut(containedFilesAndDirectories);
+            WriteOut(containedFilesAndDirectories);
         }
-        void selectTheFiles(ArrayList selectableList)
+        void SelectTheFiles(ArrayList selectableList)
         {
             int sizeOfTheList = 0;
             var input = selectableList[sizeOfTheList].ToString();
@@ -51,13 +50,13 @@ namespace Filemanager
                 switch (key.Key)
                 {
                     case ConsoleKey.Backspace:
-                        stepBackOneDirectory();
+                        StepBackOneDirectory();
                         break;
                     case ConsoleKey.LeftArrow:
-                        stepBackOneDirectory();
+                        StepBackOneDirectory();
                         break;
                     case ConsoleKey.H:
-                        stepBackOneDirectory();
+                        StepBackOneDirectory();
                         break;
                     case ConsoleKey.Enter:
                         path = selectableList[sizeOfTheList].ToString();
@@ -90,15 +89,15 @@ namespace Filemanager
                     break;
                 }
             }
-            searchTheFilesAndFolders();
+            SearchTheFilesAndFolders();
         }
         int GoUp(int index, ArrayList selectableList)
         {
             if (index > 0)
             {
                 index--;
-                clearLine();
-                Console.Write(splitanArrayList(selectableList[index]).ToString()+"\\");
+                ClearLine();
+                Console.Write(SplitanArrayList(selectableList[index]).ToString()+"\\");
             }
             return index;
         }
@@ -107,12 +106,12 @@ namespace Filemanager
             if (index < selectableList.Count - 1)
             {
                 index++;
-                clearLine();
-                Console.Write(splitanArrayList(selectableList[index]).ToString() + "\\");
+                ClearLine();
+                Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
             }
             return index;
         }
-        void writeOut(ArrayList OutWriteableList)
+        void WriteOut(ArrayList OutWriteableList)
         {
             OutWriteableList.Sort() ;
             Console.Write("\n");
@@ -121,7 +120,7 @@ namespace Filemanager
                 foreach (var item in OutWriteableList)
                 {
 
-                    Console.WriteLine(splitanArrayList(item));
+                    Console.WriteLine(SplitanArrayList(item));
                 }
             }
             else
@@ -135,17 +134,17 @@ namespace Filemanager
 
 
             Console.Write("\n");
-            selectTheFiles(OutWriteableList);
+            SelectTheFiles(OutWriteableList);
         }
 
-        void clearLine()
+        void ClearLine()
         {
             int currentLineCursor = Console.CursorTop;
             Console.SetCursorPosition(0, Console.CursorTop);
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, currentLineCursor);
         }
-        string splitanArrayList(System.Object splittableList)
+        string SplitanArrayList(System.Object splittableList)
         {
             string[] splitable = splittableList.ToString().Split('\\');
 
@@ -159,14 +158,14 @@ namespace Filemanager
                 return splitable[1];
             }
         }
-        void stepBackOneDirectory()
+        void StepBackOneDirectory()
         {
             string[] splitedPath = path.Split("\\");
             if (splitedPath.Length <= 2)
             {
                 
                 path = "";
-                searchDrive();
+                SearchDrive();
                 //breakpoint
             }
             else
@@ -177,7 +176,7 @@ namespace Filemanager
                 {
                     path += splitedPath + "\\";
                 }
-                searchTheFilesAndFolders();
+                SearchTheFilesAndFolders();
                     //breakpoint
             }
         }
