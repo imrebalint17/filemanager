@@ -97,7 +97,7 @@ namespace Filemanager
             {
                 index--;
                 ClearLine();
-                Console.Write(SplitanArrayList(selectableList[index]).ToString()+"\\");
+                Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
             }
             return index;
         }
@@ -113,7 +113,7 @@ namespace Filemanager
         }
         void WriteOut(ArrayList OutWriteableList)
         {
-            OutWriteableList.Sort() ;
+           // OutWriteableList.Sort();
             Console.Write("\n");
             if (OutWriteableList[0] is DirectoryInfo || OutWriteableList[0] is FileInfo)
             {
@@ -163,7 +163,7 @@ namespace Filemanager
             string[] splitedPath = path.Split("\\");
             if (splitedPath.Length <= 2)
             {
-                
+
                 path = "";
                 SearchDrive();
                 //breakpoint
@@ -177,7 +177,7 @@ namespace Filemanager
                     path += splitedPath + "\\";
                 }
                 SearchTheFilesAndFolders();
-                    //breakpoint
+                //breakpoint
             }
         }
     }
