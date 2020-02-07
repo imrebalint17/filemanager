@@ -56,6 +56,9 @@ namespace Filemanager
                     case ConsoleKey.LeftArrow:
                         stepBackOneDirectory();
                         break;
+                    case ConsoleKey.H:
+                        stepBackOneDirectory();
+                        break;
                     case ConsoleKey.Enter:
                         path = selectableList[sizeOfTheList].ToString();
                         canTheWhileLoopBrake = true;
@@ -64,25 +67,21 @@ namespace Filemanager
                         path = selectableList[sizeOfTheList].ToString();
                         canTheWhileLoopBrake = true;
                         break;
+                    case ConsoleKey.L:
+                        path = selectableList[sizeOfTheList].ToString();
+                        canTheWhileLoopBrake = true;
+                        break;
                     case ConsoleKey.DownArrow:
-                        if (sizeOfTheList < selectableList.Count - 1)
-                        {
-
-                            sizeOfTheList++;
-                            clearLine();
-                            Console.Write(splitanArrayList(selectableList[sizeOfTheList]).ToString() + "\\");
-
-                        }
-
+                        sizeOfTheList = GoDown(sizeOfTheList, selectableList);
+                        break;
+                    case ConsoleKey.J:
+                        sizeOfTheList = GoDown(sizeOfTheList, selectableList);
                         break;
                     case ConsoleKey.UpArrow:
-                        if (sizeOfTheList > 0)
-                        {
-                            sizeOfTheList--;
-                            clearLine();
-                            Console.Write(splitanArrayList(selectableList[sizeOfTheList]).ToString()+"\\");
-
-                        }
+                        sizeOfTheList = GoUp(sizeOfTheList, selectableList);
+                        break;
+                    case ConsoleKey.K:
+                        sizeOfTheList = GoUp(sizeOfTheList, selectableList);
                         break;
                 }
 
@@ -92,6 +91,26 @@ namespace Filemanager
                 }
             }
             searchTheFilesAndFolders();
+        }
+        int GoUp(int index, ArrayList selectableList)
+        {
+            if (index > 0)
+            {
+                index--;
+                clearLine();
+                Console.Write(splitanArrayList(selectableList[index]).ToString()+"\\");
+            }
+            return index;
+        }
+        int GoDown(int index, ArrayList selectableList)
+        {
+            if (index < selectableList.Count - 1)
+            {
+                index++;
+                clearLine();
+                Console.Write(splitanArrayList(selectableList[index]).ToString() + "\\");
+            }
+            return index;
         }
         void writeOut(ArrayList OutWriteableList)
         {
