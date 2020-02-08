@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Filemanager
 {
@@ -92,7 +93,20 @@ namespace Filemanager
                     break;
                 }
             }
-            SearchTheFilesAndFolders();
+            
+            openaFileorFolders(selectableList,sizeOfTheList);
+        }
+        void openaFileorFolders(ArrayList selectablelist,int index)
+        {
+           if( selectablelist[index] is FileInfo)
+            {
+                string path = StackPath.Pop().ToString();
+                System.Diagnostics.Process.Start("HKEY_CLASSES_ROOT\\"+ path);
+            }
+            else
+            {
+                SearchTheFilesAndFolders();
+            }
         }
         int GoUp(int index, ArrayList selectableList)
         {
@@ -129,7 +143,7 @@ namespace Filemanager
         }
         void WriteOut(ArrayList OutWriteableList)
         {
-            // OutWriteableList.Sort();
+            
             Console.Write("\n");
             if (OutWriteableList[0] is DirectoryInfo || OutWriteableList[0] is FileInfo)
             {
@@ -177,28 +191,6 @@ namespace Filemanager
         void StepBackOneDirectory()
         {
             string path;
-
-            /*if (splitedPath.Length <= 2)
-            {
-
-                path = "";
-                SearchDrive();
-                //breakpoint
-            }
-            else
-            {
-                path = "";
-                Array.Resize(ref splitedPath, splitedPath.Length - 3);
-                
-                foreach (var item in splitedPath)
-                {
-                    path += splitedPath.ToString() + "\\";
-                }
-                Console.WriteLine(path);
-    
-                SearchTheFilesAndFolders();
-                //breakpoint
-            }*/
             if (StackPath.Count < 2)
             {
 
