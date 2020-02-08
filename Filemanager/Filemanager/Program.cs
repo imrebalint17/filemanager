@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Linq;
 
 namespace Filemanager
@@ -17,7 +18,13 @@ namespace Filemanager
         }
         void SearchDrive()
         {
-            WriteOut(new ArrayList(Directory.GetLogicalDrives()));
+            bool isWindows = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+            if(isWindows)
+                WriteOut(new ArrayList(Directory.GetLogicalDrives()));
+            else{
+                DirectoryInfo directory = new DirectoryInfo(@"/home");
+                WriteOut(new ArrayList(directory.GetDirectories()));
+            }
             Console.ReadLine();
         }
         void SearchTheFilesAndFolders()
