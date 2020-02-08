@@ -100,7 +100,13 @@ namespace Filemanager
             {
                 index--;
                 ClearLine();
-                Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                if (selectableList[index] is FileInfo) { 
+                Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                }
+                else
+                {
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                }
             }
             return index;
         }
@@ -110,7 +116,14 @@ namespace Filemanager
             {
                 index++;
                 ClearLine();
-                Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                if (selectableList[index] is FileInfo)
+                {
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                }
+                else
+                {
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                }
             }
             return index;
         }
