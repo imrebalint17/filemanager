@@ -7,7 +7,7 @@ namespace Filemanager
 {
     class Program
     {
-        public string path = "";
+        public Stack StackPath = new Stack();
         static void Main(string[] args)
         {
             Program pr = new Program();
@@ -21,7 +21,10 @@ namespace Filemanager
         }
         void SearchTheFilesAndFolders()
         {
-            DirectoryInfo directory = new DirectoryInfo(path);
+            string path1 = StackPath.Peek().ToString();
+           
+
+            DirectoryInfo directory = new DirectoryInfo(path1);
             FileInfo[] fileInfo = directory.GetFiles("*");
             DirectoryInfo[] directoryInfo = directory.GetDirectories();
             ArrayList containedFilesAndDirectories = new ArrayList();
@@ -59,15 +62,15 @@ namespace Filemanager
                         StepBackOneDirectory();
                         break;
                     case ConsoleKey.Enter:
-                        path = selectableList[sizeOfTheList].ToString();
+                        StackPath.Push(selectableList[sizeOfTheList].ToString());
                         canTheWhileLoopBrake = true;
                         break;
                     case ConsoleKey.RightArrow:
-                        path = selectableList[sizeOfTheList].ToString();
+                        StackPath.Push(selectableList[sizeOfTheList].ToString());
                         canTheWhileLoopBrake = true;
                         break;
                     case ConsoleKey.L:
-                        path = selectableList[sizeOfTheList].ToString();
+                        StackPath.Push(selectableList[sizeOfTheList].ToString());
                         canTheWhileLoopBrake = true;
                         break;
                     case ConsoleKey.DownArrow:
@@ -113,7 +116,7 @@ namespace Filemanager
         }
         void WriteOut(ArrayList OutWriteableList)
         {
-           // OutWriteableList.Sort();
+            // OutWriteableList.Sort();
             Console.Write("\n");
             if (OutWriteableList[0] is DirectoryInfo || OutWriteableList[0] is FileInfo)
             {
@@ -160,8 +163,9 @@ namespace Filemanager
         }
         void StepBackOneDirectory()
         {
-            string[] splitedPath = path.Split("\\");
-            if (splitedPath.Length <= 2)
+            string path;
+
+            /*if (splitedPath.Length <= 2)
             {
 
                 path = "";
@@ -171,11 +175,29 @@ namespace Filemanager
             else
             {
                 path = "";
-                Array.Resize(ref splitedPath, splitedPath.Length - 2);
+                Array.Resize(ref splitedPath, splitedPath.Length - 3);
+                
                 foreach (var item in splitedPath)
                 {
-                    path += splitedPath + "\\";
+                    path += splitedPath.ToString() + "\\";
                 }
+                Console.WriteLine(path);
+    
+                SearchTheFilesAndFolders();
+                //breakpoint
+            }*/
+            if (StackPath.Count < 2)
+            {
+
+                StackPath.Clear();
+                SearchDrive();
+                //breakpoint
+            }
+            else
+            {
+                path = "";
+                path = StackPath.Pop().ToString();
+                Console.WriteLine(path);
                 SearchTheFilesAndFolders();
                 //breakpoint
             }
