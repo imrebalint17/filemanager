@@ -149,16 +149,21 @@ namespace Filemanager
             {
                 foreach (var item in OutWriteableList)
                 {
-
+                    if(item is DirectoryInfo)
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    else
+                        Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(SplitanArrayList(item));
+                    Console.ResetColor();
                 }
             }
             else
             {
                 foreach (var item in OutWriteableList)
                 {
-
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(item);
+                    Console.ResetColor();
                 }
             }
 
