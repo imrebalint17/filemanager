@@ -109,7 +109,6 @@ namespace Filemanager
                 string path = StackPath.Pop().ToString();
                 // System.Diagnostics.Process.Start(path);
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
-                SearchTheFilesAndFolders();
             }
             else
             {
@@ -165,6 +164,8 @@ namespace Filemanager
                     if (item is DirectoryInfo)
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine(SplitanArrayList(item));
+                        Console.ResetColor();
                     }
                     else
                     {
