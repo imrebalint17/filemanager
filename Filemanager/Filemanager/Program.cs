@@ -108,6 +108,7 @@ namespace Filemanager
                 string path = StackPath.Pop().ToString();
                // System.Diagnostics.Process.Start(path);
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
+                SearchTheFilesAndFolders();
             }
             else
             {
