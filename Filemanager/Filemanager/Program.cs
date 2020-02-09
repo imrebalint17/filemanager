@@ -11,7 +11,7 @@ namespace Filemanager
     {
         public Stack StackPath = new Stack();
         static void Main(string[] args)
-        { 
+        {
             Program pr = new Program();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             pr.SearchDrive();
@@ -19,9 +19,10 @@ namespace Filemanager
         void SearchDrive()
         {
             bool isWindows = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-            if(isWindows)
+            if (isWindows)
                 WriteOut(new ArrayList(Directory.GetLogicalDrives()));
-            else{
+            else
+            {
                 DirectoryInfo directory = new DirectoryInfo(@"/home");
                 WriteOut(new ArrayList(directory.GetDirectories()));
             }
@@ -98,15 +99,15 @@ namespace Filemanager
                     break;
                 }
             }
-            
-            openaFileorFolders(selectableList,sizeOfTheList);
+
+            openaFileorFolders(selectableList, sizeOfTheList);
         }
-        void openaFileorFolders(ArrayList selectablelist,int index)
+        void openaFileorFolders(ArrayList selectablelist, int index)
         {
-           if( selectablelist[index] is FileInfo)
+            if (selectablelist[index] is FileInfo)
             {
                 string path = StackPath.Pop().ToString();
-               // System.Diagnostics.Process.Start(path);
+                // System.Diagnostics.Process.Start(path);
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
                 SearchTheFilesAndFolders();
             }
@@ -121,12 +122,15 @@ namespace Filemanager
             {
                 index--;
                 ClearLine();
-                if (selectableList[index] is FileInfo) { 
-                Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                if (selectableList[index] is FileInfo)
+                {
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                    //Console.ForegroundColor = ConsoleColor.Green;
                 }
                 else
                 {
-                    Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                    //Console.ForegroundColor = ConsoleColor.Blue;
                 }
             }
             return index;
@@ -140,35 +144,41 @@ namespace Filemanager
                 if (selectableList[index] is FileInfo)
                 {
                     Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                    //Console.ForegroundColor = ConsoleColor.Green;
                 }
                 else
                 {
-                    Console.Write(SplitanArrayList(selectableList[index]).ToString());
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                    //Console.ForegroundColor = ConsoleColor.Blue;
                 }
             }
             return index;
         }
         void WriteOut(ArrayList OutWriteableList)
         {
-            
+
             Console.Write("\n");
             if (OutWriteableList[0] is DirectoryInfo || OutWriteableList[0] is FileInfo)
             {
                 foreach (var item in OutWriteableList)
                 {
-                    if(item is DirectoryInfo)
-                        Console.ForegroundColor = ConsoleColor.Red;
+                    if (item is DirectoryInfo)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
                     else
+                    {
                         Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(SplitanArrayList(item));
-                    Console.ResetColor();
+                        Console.WriteLine(SplitanArrayList(item));
+                        Console.ResetColor();
+                    }
                 }
             }
             else
             {
                 foreach (var item in OutWriteableList)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine(item);
                     Console.ResetColor();
                 }
