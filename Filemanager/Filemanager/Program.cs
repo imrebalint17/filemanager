@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Linq;
+using System.Diagnostics;
 
 namespace Filemanager
 {
@@ -11,7 +11,7 @@ namespace Filemanager
     {
         public Stack StackPath = new Stack();
         static void Main(string[] args)
-        {
+        { 
             Program pr = new Program();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             pr.SearchDrive();
@@ -30,8 +30,6 @@ namespace Filemanager
         void SearchTheFilesAndFolders()
         {
             string path1 = StackPath.Peek().ToString();
-           
-
             DirectoryInfo directory = new DirectoryInfo(path1);
             FileInfo[] fileInfo = directory.GetFiles("*");
             DirectoryInfo[] directoryInfo = directory.GetDirectories();
@@ -108,7 +106,8 @@ namespace Filemanager
            if( selectablelist[index] is FileInfo)
             {
                 string path = StackPath.Pop().ToString();
-                System.Diagnostics.Process.Start("HKEY_CLASSES_ROOT\\"+ path);
+               // System.Diagnostics.Process.Start(path);
+                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
             else
             {
@@ -126,7 +125,7 @@ namespace Filemanager
                 }
                 else
                 {
-                    Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString());
                 }
             }
             return index;
@@ -143,7 +142,7 @@ namespace Filemanager
                 }
                 else
                 {
-                    Console.Write(SplitanArrayList(selectableList[index]).ToString() + "\\");
+                    Console.Write(SplitanArrayList(selectableList[index]).ToString());
                 }
             }
             return index;
