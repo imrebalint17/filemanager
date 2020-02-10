@@ -110,10 +110,8 @@ namespace Filemanager
                 // System.Diagnostics.Process.Start(path);
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
-            else
-            {
-                SearchTheFilesAndFolders();
-            }
+            SearchTheFilesAndFolders();
+          
         }
         int GoUp(int index, ArrayList selectableList)
         {
