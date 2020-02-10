@@ -112,9 +112,9 @@ namespace Filemanager
                 }
             }
 
-            openaFileorFolders(selectableList, sizeOfTheList);
+            OpenAFileorFolders(selectableList, sizeOfTheList);
         }
-        void openaFileorFolders(ArrayList selectablelist, int index)
+        void OpenAFileorFolders(ArrayList selectablelist, int index)
         {
             if (selectablelist[index] is FileInfo)
             {
