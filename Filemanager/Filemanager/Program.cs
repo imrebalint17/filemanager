@@ -32,20 +32,30 @@ namespace Filemanager
         {
             string path1 = StackPath.Peek().ToString();
             DirectoryInfo directory = new DirectoryInfo(path1);
-            FileInfo[] fileInfo = directory.GetFiles("*");
-            DirectoryInfo[] directoryInfo = directory.GetDirectories();
-            ArrayList containedFilesAndDirectories = new ArrayList();
-            foreach (var item in fileInfo)
+            try
             {
-                containedFilesAndDirectories.Add(item);
+                FileInfo[] fileInfo = directory.GetFiles("*");
+                DirectoryInfo[] directoryInfo = directory.GetDirectories();
+                ArrayList containedFilesAndDirectories = new ArrayList();
+                foreach (var item in fileInfo)
+                {
+                    containedFilesAndDirectories.Add(item);
+                }
+                foreach (var item in directoryInfo)
+                {
+                    containedFilesAndDirectories.Add(item);
+                }
+                Console.Write("\n");
+                Console.WriteLine("Elérhető mappák/fájlok:");
+                WriteOut(containedFilesAndDirectories);
             }
-            foreach (var item in directoryInfo)
+            catch
             {
-                containedFilesAndDirectories.Add(item);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nValami hiba történt...");
+                Console.ResetColor();
+                SearchDrive();
             }
-            Console.Write("\n");
-            Console.WriteLine("Elérhető mappák/fájlok:");
-            WriteOut(containedFilesAndDirectories);
         }
         void SelectTheFiles(ArrayList selectableList)
         {
