@@ -68,6 +68,7 @@ namespace Filemanager
             {
 
                 var key = Console.ReadKey(true);
+                System.Threading.Thread.Sleep(100);
                 switch (key.Key)
                 {
                     case ConsoleKey.Backspace:
@@ -122,7 +123,7 @@ namespace Filemanager
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
             SearchTheFilesAndFolders();
-          
+
         }
         int GoUp(int index, ArrayList selectableList)
         {
