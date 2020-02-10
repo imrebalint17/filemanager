@@ -52,9 +52,10 @@ namespace Filemanager
             catch
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nValami hiba történt...");
+                Console.WriteLine("\n--------\nValami hiba történt...\n--------");
                 Console.ResetColor();
-                SearchDrive();
+                StepBackOneDirectory();
+                //SearchDrive();
             }
         }
         void SelectTheFiles(ArrayList selectableList)
