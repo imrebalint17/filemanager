@@ -66,9 +66,7 @@ namespace Filemanager
             bool canTheWhileLoopBrake = false;
             while (true)
             {
-
                 var key = Console.ReadKey(true);
-                System.Threading.Thread.Sleep(100);
                 switch (key.Key)
                 {
                     case ConsoleKey.Backspace:

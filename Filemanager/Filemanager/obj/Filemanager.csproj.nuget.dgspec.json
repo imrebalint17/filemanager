@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\home\\development\\csharp\\filemanager-master\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj": {}
+    "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj": {}
   },
   "projects": {
-    "D:\\home\\development\\csharp\\filemanager-master\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj": {
+    "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\home\\development\\csharp\\filemanager-master\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj",
+        "projectUniqueName": "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj",
         "projectName": "Filemanager",
-        "projectPath": "D:\\home\\development\\csharp\\filemanager-master\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj",
-        "packagesPath": "C:\\Users\\lajos\\.nuget\\packages\\",
-        "outputPath": "D:\\home\\development\\csharp\\filemanager-master\\filemanager\\Filemanager\\Filemanager\\obj\\",
+        "projectPath": "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\Filemanager.csproj",
+        "packagesPath": "C:\\Users\\imreb\\.nuget\\packages\\",
+        "outputPath": "D:\\Programozas\\github\\filemanager\\Filemanager\\Filemanager\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\lajos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\imreb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
