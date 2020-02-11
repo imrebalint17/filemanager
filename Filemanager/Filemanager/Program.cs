@@ -49,10 +49,10 @@ namespace Filemanager
                 Console.WriteLine("Elérhető mappák/fájlok:");
                 WriteOut(containedFilesAndDirectories);
             }
-            catch
+            catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n--------\nValami hiba történt...\n--------");
+                Console.WriteLine("\n--------\nValami hiba történt... {0}\n--------",ex.Message);
                 Console.ResetColor();
                 StepBackOneDirectory();
                 //SearchDrive();
