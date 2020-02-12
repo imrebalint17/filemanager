@@ -162,8 +162,7 @@ namespace FileManager
 
         private void WriteOut(IEnumerable<Tuple<FileSystemInfo, string>> listToWrite)
         {
-            Console.Write("\n");
-
+            Console.Clear();
             foreach (var item in listToWrite)
             {
                 if (item.Item1 is DirectoryInfo || item.Item1 == null)
