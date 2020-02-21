@@ -34,11 +34,12 @@ namespace FileManager
         private void SearchTheFilesAndFolders()
         {
             var path = new StringBuilder().AppendJoin(Path.DirectorySeparatorChar, stackPath.Reverse()).ToString();
-
+            
             var directory = new DirectoryInfo(path);
-
             try
             {
+                
+                Console.Clear();
                 var fileInfos = directory.GetFiles("*");
                 var directoryInfos = directory.GetDirectories();
                 var containedFilesAndDirectories = new List<FileSystemInfo>();
@@ -47,15 +48,16 @@ namespace FileManager
                     containedFilesAndDirectories.Add(fileInfo);
 
                 foreach (var directoryInfo in directoryInfos)
-                    containedFilesAndDirectories.Add(directoryInfo);
-
+                containedFilesAndDirectories.Add(directoryInfo);
                 Console.Write("\n");
                 Console.WriteLine("Elérhető mappák/fájlok:");
-
+                
                 WriteOut(containedFilesAndDirectories.Select(cfd => new Tuple<FileSystemInfo, string>(cfd, cfd.Name)));
+               
             }
             catch (Exception ex)
             {
+                
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\n--------\nValami hiba történt... {ex.Message}\n--------");
                 Console.ResetColor();
@@ -162,7 +164,7 @@ namespace FileManager
 
         private void WriteOut(IEnumerable<Tuple<FileSystemInfo, string>> listToWrite)
         {
-            Console.Clear();
+            Console.Write("\n");
             foreach (var item in listToWrite)
             {
                 if (item.Item1 is DirectoryInfo || item.Item1 == null)
