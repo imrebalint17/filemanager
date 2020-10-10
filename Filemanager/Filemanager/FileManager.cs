@@ -5,8 +5,8 @@ namespace FileManager
     public class FileManager
     {
         public FileManager() {
-            FolderHandler fc = new FolderHandler();
-            fc.SearchDrive();
+            FolderHandler fileHandler = new FolderHandler();
+            fileHandler.SearchDrive();
         }
     }
 }

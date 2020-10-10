@@ -15,6 +15,8 @@ namespace Filemanager
 
         public void SearchDrive()
         {
+            Console.Clear();
+
             var isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
 
             if (isWindows)

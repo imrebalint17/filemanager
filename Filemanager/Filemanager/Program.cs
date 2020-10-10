@@ -8,7 +8,7 @@ namespace FileManager
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            var fileManager = new FileManager();
+            new FileManager();
         }
     }
 }
