@@ -34,8 +34,8 @@ namespace FileManager
         private void SearchTheFilesAndFolders()
         {
             var path = new StringBuilder().AppendJoin(Path.DirectorySeparatorChar, stackPath.Reverse()).ToString();
-            
             var directory = new DirectoryInfo(path);
+
             try
             {
                 
@@ -48,8 +48,8 @@ namespace FileManager
                     containedFilesAndDirectories.Add(fileInfo);
 
                 foreach (var directoryInfo in directoryInfos)
-                containedFilesAndDirectories.Add(directoryInfo);
-                Console.Write("\n");
+                    containedFilesAndDirectories.Add(directoryInfo);
+                Console.WriteLine();
                 Console.WriteLine("Elérhető mappák/fájlok:");
                 
                 WriteOut(containedFilesAndDirectories.Select(cfd => new Tuple<FileSystemInfo, string>(cfd, cfd.Name)));
@@ -81,37 +81,26 @@ namespace FileManager
                 switch (key.Key)
                 {
                     case ConsoleKey.Backspace:
-                        StepBackOneDirectory();
-                        break;
                     case ConsoleKey.LeftArrow:
-                        StepBackOneDirectory();
-                        break;
                     case ConsoleKey.H:
                         StepBackOneDirectory();
                         break;
                     case ConsoleKey.Enter:
-                        stackPath.Push(fileInfos.ElementAt(sizeOfTheList).Item2);
-                        shouldStop = true;
-                        break;
                     case ConsoleKey.RightArrow:
-                        stackPath.Push(fileInfos.ElementAt(sizeOfTheList).Item2);
-                        shouldStop = true;
-                        break;
                     case ConsoleKey.L:
                         stackPath.Push(fileInfos.ElementAt(sizeOfTheList).Item2);
                         shouldStop = true;
                         break;
                     case ConsoleKey.DownArrow:
-                        sizeOfTheList = GoDown(fileInfos, sizeOfTheList);
-                        break;
                     case ConsoleKey.J:
                         sizeOfTheList = GoDown(fileInfos, sizeOfTheList);
                         break;
                     case ConsoleKey.UpArrow:
-                        sizeOfTheList = GoUp(fileInfos, sizeOfTheList);
-                        break;
                     case ConsoleKey.K:
                         sizeOfTheList = GoUp(fileInfos, sizeOfTheList);
+                        break;
+                    case ConsoleKey.Q:
+                        Environment.Exit(0);
                         break;
                 }
 
@@ -127,7 +116,6 @@ namespace FileManager
             if (fileInfos.ElementAt(index).Item1 is FileInfo)
             {
                 var path = new StringBuilder().AppendJoin(Path.DirectorySeparatorChar, stackPath.Reverse()).ToString();
-
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
 
@@ -164,7 +152,8 @@ namespace FileManager
 
         private void WriteOut(IEnumerable<Tuple<FileSystemInfo, string>> listToWrite)
         {
-            Console.Write("\n");
+            Console.WriteLine();
+
             foreach (var item in listToWrite)
             {
                 if (item.Item1 is DirectoryInfo || item.Item1 == null)
@@ -181,7 +170,7 @@ namespace FileManager
                 }
             }
 
-            Console.Write("\n");
+            Console.WriteLine();
 
             SelectTheFiles(listToWrite);
         }
@@ -197,13 +186,12 @@ namespace FileManager
 
         private string SplitFileSystemInfo(string name)
         {
-            var splitted = name.Split('\\');
-            var reversed = splitted.Reverse();
+            var splitted = name.Split('\\').Reverse();
 
-            if (reversed.ElementAt(0) != "")
-                return reversed.ElementAt(0);
+            if (splitted.ElementAt(0) != "")
+                return splitted.ElementAt(0);
 
-            return reversed.ElementAt(1);
+            return splitted.ElementAt(1);
         }
 
         private void StepBackOneDirectory()
