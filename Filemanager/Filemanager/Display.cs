@@ -7,7 +7,8 @@ namespace Filemanager
 {
     class Display
     {
-        protected void WriteOut(IEnumerable<Tuple<FileSystemInfo, string>> listToWrite)
+        //Optionally sets item background
+        protected void WriteOut(IEnumerable<Tuple<FileSystemInfo, string>> listToWrite, bool itemHasBackground=false)
         {
             Console.WriteLine();
 
@@ -16,12 +17,20 @@ namespace Filemanager
                 if (item.Item1 is DirectoryInfo || item.Item1 == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
+                    if (itemHasBackground == true)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                    }
                     Console.WriteLine(SplitFileSystemInfo(item.Item2));
                     Console.ResetColor();
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
+                    if (itemHasBackground == true)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                    }
                     Console.WriteLine(SplitFileSystemInfo(item.Item2));
                     Console.ResetColor();
                 }
