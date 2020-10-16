@@ -21,7 +21,7 @@ namespace Filemanager
 
             if (isWindows)
             {
-                WriteOut(Directory.GetLogicalDrives().Select(ld => new Tuple<FileSystemInfo, string>(null, ld)));
+                WriteOut(Directory.GetLogicalDrives().Select(ld => new Tuple<FileSystemInfo, string>(null, ld)), true);
                 SelectTheFiles(Directory.GetLogicalDrives().Select(ld => new Tuple<FileSystemInfo, string>(null, ld)));
             }
             else
@@ -57,7 +57,7 @@ namespace Filemanager
                 Console.WriteLine();
                 Console.WriteLine("Elérhető mappák/fájlok:");
 
-                WriteOut(containedFilesAndDirectories.Select(cfd => new Tuple<FileSystemInfo, string>(cfd, cfd.Name)));
+                WriteOut(containedFilesAndDirectories.Select(cfd => new Tuple<FileSystemInfo, string>(cfd, cfd.Name)),true);
                 SelectTheFiles(containedFilesAndDirectories.Select(cfd => new Tuple<FileSystemInfo, string>(cfd, cfd.Name)));
 
             }
